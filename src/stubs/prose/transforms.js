@@ -1,7 +1,7 @@
 import fs from 'fs'
 import fm from 'front-matter'
 import MarkdownIt from 'markdown-it'
-import plugins from './plugins'
+import * as plugins from './plugins'
 
 export function preRender (markdown, filePath) {
   return {
