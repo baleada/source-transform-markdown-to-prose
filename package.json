@@ -1,24 +1,34 @@
 {
   "name": "@baleada/markdown-to-template",
   "version": "0.0.0",
-  "description": "Transform markdown strings to React, Svelte, and Vue template strings, for the Baleada toolkit.",
+  "description": "Functions that transform markdown strings to React, Svelte, and Vue template strings for the Baleada toolkit.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "node scripts/prepare.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/baleada/markdown-to-template.git"
   },
   "keywords": [
-    "baleada"
+    "baleada",
+    "markdown",
+    "template",
+    "vue",
+    "react",
+    "svelte",
+    "markdown-it plugin"
   ],
-  "author": "AlexVipond",
+  "author": {
+    "name": "Alex Vipond",
+    "email": "hello@alexvipond.dev",
+    "url": "https://alexvipond.dev"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/baleada/markdown-to-template/issues"
   },
-  "homepage": "https://gitlab.com/baleada/markdown-to-template#readme",
+  "homepage": "https://baleada.netlify.com",
   "dependencies": {
     "front-matter": "^3.0.2",
     "markdown-it": "^10.0.0",
