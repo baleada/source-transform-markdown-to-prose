@@ -1,15 +1,7 @@
-import aside from './aside.js'
-import blockquote from './blockquote.js'
-import codeblock from './codeblock.js'
-import details from './details.js'
-import grid from './grid.js'
-import heading from './heading.js'
+import container from './container'
+import route from './route'
 
 export {
-  aside,
-  blockquote,
-  codeblock,
-  details,
-  grid,
-  heading,
+  container,
+  route
 }

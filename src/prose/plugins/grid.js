@@ -26,11 +26,11 @@ export default function(md, options) {
 function renderProseGrid (md) {
   return (tokens, index) => {
     const propsInterface = {
-            hasMaxHeight: 'boolean',
-            canFilterByQuery: 'boolean',
-            filterQueryIsCaseSensitive: 'boolean',
-            ariaLabel: 'string',
-          },
+      hasMaxHeight: 'boolean',
+      canFilterByQuery: 'boolean',
+      filterQueryIsCaseSensitive: 'boolean',
+      ariaLabel: 'string',
+    },
           props = toProps(tokens[index].info, propsInterface),
           stringifiedProps = JSON.stringify(props)
 
