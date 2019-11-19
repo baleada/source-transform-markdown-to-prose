@@ -32,7 +32,7 @@ export default function(templateType, options) {
   const { plugins: rawPlugins } = options,
         proseContainerPlugin = { plugin: MarkdownItProseContainer, options: { templateType } },
         plugins = [proseContainerPlugin, ...resolvePlugins(rawPlugins)],
-        markdownItOptions = (({ plugins, ...rest }) => ({ ...rest }))()
+        markdownItOptions = (({ plugins, ...rest }) => ({ ...rest }))(options)
 
   return (markdown, filePath) => {
     const { attributes, body } = fm(filePath),
