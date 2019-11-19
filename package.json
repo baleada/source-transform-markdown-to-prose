@@ -31,9 +31,7 @@
   "homepage": "https://baleada.netlify.com",
   "dependencies": {
     "front-matter": "^3.0.2",
-    "markdown-it": "^10.0.0",
-    "markdown-it-container": "^2.0.0",
-    "prismjs": "^1.17.1"
+    "markdown-it": "^10.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",

@@ -1,7 +1,3 @@
-import rollup from './rollup.js'
-import webpack from './webpack.js'
+import getToTemplate from './getToTemplate'
 
-export {
-  rollup,
-  webpack,
-}
+export default getToTemplate

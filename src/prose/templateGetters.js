@@ -14,14 +14,14 @@ function vue ({ markup, attributes, stats }) {
 \n\
 <script>\n\
 import { inject } from '@vue/composition-api'\n\
-import { useSymbol } from '@baleada/prose/vue/composition'\n\
+import { useSymbol } from '@baleada/prose/vue'\n\
 \n\
 export default {\n\
   setup () {\n\
-    const setFrontmatter = inject(useSymbol('article', 'setFrontmatter')),\n\
+    const setFrontMatter = inject(useSymbol('article', 'setFrontMatter')),\n\
           setStats = inject(useSymbol('article', 'setStats'))\n\
 \n\
-    setFrontmatter(${JSON.stringify(attributes)})\n\
+    setFrontMatter(${JSON.stringify(attributes)})\n\
     setStats(${JSON.stringify(stats)})\n\
   }\n\
 }\n\

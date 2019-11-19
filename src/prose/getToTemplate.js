@@ -1,7 +1,7 @@
 import fs from 'fs'
 import fm from 'front-matter'
 import MarkdownIt from 'markdown-it'
-import { container } from './plugins'
+import MarkdownItProseContainer from '@baleada/markdown-it-prose-container'
 import getTemplate from './templateGetters'
 
 // Options: {
@@ -13,44 +13,45 @@ const validTemplateTypes = ['jsx', 'svelte', 'vue'],
         plugins: []
       }
 
-export default function(options) {
-  options = {
-    ...defaultOptions,
-    ...options
+export default function(templateType, options) {
+  try {
+    templateType = templateType.toLowerCase()
+  } catch (error) {
+    throw error
   }
-
-  const { templateType: t } = options,
-        templateType = t.toLowerCase ? t.toLowerCase() : t
 
   if (!validTemplateTypes.includes(templateType)) {
     throw new Error('invalid templateType')
   }
 
+  options = {
+    ...defaultOptions,
+    ...options
+  }
+
   const { plugins: rawPlugins } = options,
-        containerPlugin = { plugin: container, options: { templateType } },
-        plugins = [containerPlugin, ...resolvePlugins(rawPlugins)],
+        proseContainerPlugin = { plugin: MarkdownItProseContainer, options: { templateType } },
+        plugins = [proseContainerPlugin, ...resolvePlugins(rawPlugins)],
         markdownItOptions = (({ plugins, ...rest }) => ({ ...rest }))()
 
   return (markdown, filePath) => {
     const { attributes, body } = fm(filePath),
           stats = fs.statSync(filePath),
-          md = new MarkdownIt({
-            ...markdownItOptions,
-            ...options
-          })
+          md = new MarkdownIt(markdownItOptions)
 
-    plugins.forEach(({ plugin, options }) => md.use(plugin, options))
+    plugins.forEach(({ plugin, params }) => md.use(plugin, ...params))
 
-    const markup = md.render(body)
+    const markup = md.render(body),
+          template = getTemplate(templateType, { markup, attributes, stats })
 
-    return getTemplate(templateType, { markup, attributes, stats })
+    return template
   }
 }
 
 function resolvePlugins (plugins) {
   return plugins.map(plugin => {
-    return (typeof plugin === 'function' && { plugin, options: {} }) ||
-      (Array.isArray(plugin) && { plugin: plugin[0], options: plugin[1] }) ||
+    return (typeof plugin === 'function' && { plugin, params: [] }) ||
+      (Array.isArray(plugin) && { plugin: plugin[0], params: plugin.slice(1) }) ||
       {}
   })
 }
