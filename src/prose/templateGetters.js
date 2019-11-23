@@ -1,13 +1,12 @@
 function vue ({ markup, attributes, stats }) {
-  const { title } = attributes,
-        { mtime } = stats
+  const { title } = attributes
 
   // TODO: Remove heading and mtime once Vue supports fragments, then wrap markup in a fragment
   return `\
 <template lang="html">\
 <section class="contents">\
   <ProseHeading :level="1">${title}</ProseHeading>\
-  <ProseMTime mtime="${mtime}" />\
+  <ProseStats stats="${stats}" />\
   ${markup}\
 </section>\
 </template>\n\

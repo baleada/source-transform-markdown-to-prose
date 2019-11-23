@@ -30,7 +30,7 @@ export default function(templateType, options) {
   }
 
   const { plugins: rawPlugins } = options,
-        proseContainerPlugin = { plugin: MarkdownItProseContainer, options: { templateType } },
+        proseContainerPlugin = { plugin: MarkdownItProseContainer, params: [templateType] },
         plugins = [proseContainerPlugin, ...resolvePlugins(rawPlugins)],
         markdownItOptions = (({ plugins, ...rest }) => ({ ...rest }))(options)
 
