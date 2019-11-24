@@ -35,7 +35,7 @@ export default function(templateType, options) {
         markdownItOptions = (({ plugins, ...rest }) => ({ ...rest }))(options)
 
   return (markdown, filePath) => {
-    const { attributes, body } = fm(filePath),
+    const { attributes, body } = fm(markdown),
           stats = fs.statSync(filePath),
           md = new MarkdownIt(markdownItOptions)
 

@@ -6,7 +6,7 @@ function vue ({ markup, attributes, stats }) {
 <template lang="html">\
 <section class="contents">\
   <ProseHeading :level="1">${title}</ProseHeading>\
-  <ProseStats stats="${stats}" />\
+  <ProseStats :stats="${singleQuoteStringify(stats)}" />\
   ${markup}\
 </section>\
 </template>\n\
@@ -20,8 +20,8 @@ export default {\n\
     const setFrontMatter = inject(useSymbol('article', 'setFrontMatter')),\n\
           setStats = inject(useSymbol('article', 'setStats'))\n\
 \n\
-    setFrontMatter(${JSON.stringify(attributes)})\n\
-    setStats(${JSON.stringify(stats)})\n\
+    setFrontMatter(${singleQuoteStringify(attributes)})\n\
+    setStats(${singleQuoteStringify(stats)})\n\
   }\n\
 }\n\
 </script>`
@@ -33,6 +33,10 @@ function jsx ({ markup, attributes, stats }) {
 
 function svelte ({ markup, attributes, stats }) {
   throw new Error('svelte template is a work in progress')
+}
+
+function singleQuoteStringify (props) {
+  return JSON.stringify(props).replace(/"/g, '\'')
 }
 
 const templateGetters = {
