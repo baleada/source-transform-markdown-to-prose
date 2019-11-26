@@ -1,7 +1,7 @@
 function vue ({ markup, attributes, stats }) {
   const { title } = attributes
 
-  // TODO: Remove heading and mtime once Vue supports fragments, then wrap markup in a fragment
+  // TODO: Remove heading and stats once Vue supports fragments, then wrap markup in a fragment
   return `\
 <template lang="html">\
 <section class="contents">\

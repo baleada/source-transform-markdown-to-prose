@@ -1,5 +1,5 @@
-# `@baleada/markdown-to-template`
+# `@baleada/markdown-to-prose`
 
-Functions that transform markdown strings to React, Svelte, and Vue template strings for the Baleada toolkit.
+Transform markdown strings into React, Vue, and Svelte templates with Prose components. Designed to be used with Baleada Loader.
 
 [See the docs](https://baleada.netlify.com) for more guidance.

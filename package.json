@@ -1,23 +1,23 @@
 {
-  "name": "@baleada/markdown-to-template",
+  "name": "@baleada/markdown-to-prose",
   "version": "0.0.0",
-  "description": "Functions that transform markdown strings to React, Svelte, and Vue template strings for the Baleada toolkit.",
+  "description": "Transform markdown strings into React, Vue, and Svelte templates with Prose components. Designed to be used with Baleada Loader.",
   "main": "lib/index.js",
   "scripts": {
     "prepare": "node scripts/prepare.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/baleada/markdown-to-template.git"
+    "url": "git+https://gitlab.com/baleada/markdown-to-prose.git"
   },
   "keywords": [
     "baleada",
     "markdown",
     "template",
+    "prose",
     "vue",
     "react",
-    "svelte",
-    "markdown-it plugin"
+    "svelte"
   ],
   "author": {
     "name": "Alex Vipond",
@@ -26,7 +26,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/baleada/markdown-to-template/issues"
+    "url": "https://gitlab.com/baleada/markdown-to-prose/issues"
   },
   "homepage": "https://baleada.netlify.com",
   "dependencies": {
