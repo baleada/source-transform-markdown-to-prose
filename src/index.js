@@ -4,31 +4,14 @@ import MarkdownIt from 'markdown-it'
 import MarkdownItProseContainer from '@baleada/markdown-it-prose-container'
 import getTemplate from './templateGetters'
 
-const validTemplateTypes = ['jsx', 'svelte', 'vue'],
-      defaultOptions = {
-        plugins: []
-      }
-
-export default function(templateType, options) {
-  try {
-    templateType = templateType.toLowerCase()
-  } catch (error) {
-    throw error
-  }
-
-  if (!validTemplateTypes.includes(templateType)) {
-    throw new Error('invalid templateType')
-  }
-
-  options = {
-    ...defaultOptions,
-    ...options
-  }
-
-  const { plugins: rawPlugins } = options,
-        proseContainerPlugin = { plugin: MarkdownItProseContainer, params: [templateType] },
-        plugins = [proseContainerPlugin, ...resolvePlugins(rawPlugins)],
-        markdownItOptions = (({ plugins, ...rest }) => ({ ...rest }))(options)
+export default function(required, options) {
+  const { templateType } = required,
+        { proseContainer: proseContainerOptions, markdownIt: markdownItOptions } = options,
+        proseContainerRequired = required,
+        proseContainerPlugin = { plugin: MarkdownItProseContainer, params: [proseContainerRequired, proseContainerOptions] },
+        { plugins: rawPlugins } = markdownItOptions || {},
+        resolvablePlugins = rawPlugins || [],
+        plugins = [proseContainerPlugin, ...resolvePlugins(resolvablePlugins)]
 
   return (markdown, filePath) => {
     const { attributes, body } = fm(markdown),
