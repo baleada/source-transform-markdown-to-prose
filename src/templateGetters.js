@@ -1,12 +1,8 @@
 function vue ({ markup, attributes, stats }) {
-  const { title } = attributes
-
-  // TODO: Remove heading and stats once Vue supports fragments, then wrap markup in a fragment
+  // TODO: use a fragment here when support comes with Vue 3
   return `\
 <template lang="html">\
-<section class="contents">\
-  <ProseHeading :level="1">${title}</ProseHeading>\
-  <ProseStats :stats="${singleQuoteStringify(stats)}" />\
+<section>\
   ${markup}\
 </section>\
 </template>\n\
