@@ -1,4 +1,4 @@
-function vue ({ markup, attributes, stats }) {
+function vue ({ markup, attributes, stats, filePath }) {
   // TODO: use a fragment here when support comes with Vue 3
   return `\
 <template lang="html">\
@@ -14,10 +14,12 @@ import { useSymbol } from '@baleada/prose/vue'\n\
 export default {\n\
   setup () {\n\
     const setFrontMatter = inject(useSymbol('article', 'setFrontMatter')),\n\
-          setStats = inject(useSymbol('article', 'setStats'))\n\
+          setStats = inject(useSymbol('article', 'setStats')),\n\
+          setFilePath = inject(useSymbol('article', 'setFilePath'))\n\
 \n\
     setFrontMatter(${singleQuoteStringify(attributes)})\n\
     setStats(${singleQuoteStringify(stats)})\n\
+    setFilePath(${filePath})\n\
   }\n\
 }\n\
 </script>`

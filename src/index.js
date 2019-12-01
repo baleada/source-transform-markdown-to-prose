@@ -21,7 +21,7 @@ export default function(required, options) {
     plugins.forEach(({ plugin, params }) => md.use(plugin, ...params))
 
     const markup = md.render(body),
-          template = getTemplate(templateType, { markup, attributes, stats })
+          template = getTemplate(templateType, { markup, attributes, stats, filePath })
 
     return template
   }
