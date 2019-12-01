@@ -19,7 +19,7 @@ export default {\n\
 \n\
     setFrontMatter(${singleQuoteStringify(attributes)})\n\
     setStats(${singleQuoteStringify(stats)})\n\
-    setFilePath(${filePath})\n\
+    setFilePath('${filePath}')\n\
   }\n\
 }\n\
 </script>`
