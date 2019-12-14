@@ -1,4 +1,4 @@
-function vue ({ markup, attributes, stats, filePath }) {
+function vue ({ markup, frontMatter, stats, filePath }) {
   // TODO: use a fragment here when support comes with Vue 3
   return `\
 <template lang="html">\
@@ -17,7 +17,7 @@ export default {\n\
           setStats = inject(useSymbol('article', 'setStats')),\n\
           setFilePath = inject(useSymbol('article', 'setFilePath'))\n\
 \n\
-    setFrontMatter(${singleQuoteStringify(attributes)})\n\
+    setFrontMatter(${singleQuoteStringify(frontMatter)})\n\
     setStats(${singleQuoteStringify(stats)})\n\
     setFilePath('${filePath}')\n\
   }\n\
@@ -25,11 +25,11 @@ export default {\n\
 </script>`
 }
 
-function jsx ({ markup, attributes, stats }) {
+function jsx ({ markup, frontMatter, stats }) {
   throw new Error('jsx template is a work in progress')
 }
 
-function svelte ({ markup, attributes, stats }) {
+function svelte ({ markup, frontMatter, stats }) {
   throw new Error('svelte template is a work in progress')
 }
 

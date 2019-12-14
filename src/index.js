@@ -6,7 +6,7 @@ import getTemplate from './templateGetters'
 
 export default function(required, options) {
   const { templateType } = required,
-        { proseContainer: proseContainerOptions, markdownIt: markdownItOptions } = options,
+        { proseContainer: proseContainerOptions, markdownIt: markdownItOptions, before, after } = options,
         proseContainerRequired = required,
         proseContainerPlugin = { plugin: MarkdownItProseContainer, params: [proseContainerRequired, proseContainerOptions] },
         { plugins: rawPlugins } = markdownItOptions || {},
@@ -14,14 +14,16 @@ export default function(required, options) {
         plugins = [proseContainerPlugin, ...resolvePlugins(resolvablePlugins)]
 
   return (markdown, filePath) => {
-    const { attributes, body } = fm(markdown),
+    const { attributes: frontMatter, body } = fm(markdown),
           stats = fs.statSync(filePath),
-          md = new MarkdownIt(markdownItOptions)
+          md = new MarkdownIt(markdownItOptions),
+          bodyBefore = before ? before({ frontMatter, stats, filePath }) : '',
+          bodyAfter = after ? after({ frontMatter, stats, filePath }) : ''
 
     plugins.forEach(({ plugin, params }) => md.use(plugin, ...params))
 
-    const markup = md.render(body),
-          template = getTemplate(templateType, { markup, attributes, stats, filePath })
+    const markup = md.render(`${bodyBefore}${body}${bodyAfter}`),
+          template = getTemplate(templateType, { markup, frontMatter, stats, filePath })
 
     return template
   }
