@@ -2,7 +2,7 @@ function vue ({ markup, frontMatter, stats, filePath }) {
   // TODO: use a fragment here when support comes with Vue 3
   return `\
 <template lang="html">\
-<section>\
+<section class="contents">\
   ${markup}\
 </section>\
 </template>\n\
