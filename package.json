@@ -1,6 +1,6 @@
 {
   "name": "@baleada/markdown-to-prose",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Transform markdown strings into React, Vue, and Svelte templates with Prose components. Designed to be used with Baleada Loader.",
   "main": "lib/index.js",
   "scripts": {
@@ -52,6 +52,6 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "peerDependencies": {
-    "@baleada/markdown-it-prose-container": "0.x"
+    "@baleada/prose-container": "0.x"
   }
 }
