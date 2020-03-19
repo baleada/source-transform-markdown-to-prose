@@ -13,13 +13,13 @@ import { useSymbol } from '@baleada/prose/vue'\n\
 \n\
 export default {\n\
   setup () {\n\
-    const setFrontMatter = inject(useSymbol('article', 'setFrontMatter')),\n\
-          setStats = inject(useSymbol('article', 'setStats')),\n\
-          setFilePath = inject(useSymbol('article', 'setFilePath'))\n\
+    const frontMatter = inject(useSymbol('article', 'frontMatter')),\n\
+          stats = inject(useSymbol('article', 'stats')),\n\
+          filePath = inject(useSymbol('article', 'filePath'))\n\
 \n\
-    setFrontMatter(${singleQuoteStringify(frontMatter)})\n\
-    setStats(${singleQuoteStringify(stats)})\n\
-    setFilePath('${filePath}')\n\
+    frontMatter.value = ${singleQuoteStringify(frontMatter)}\n\
+    stats.value = ${singleQuoteStringify(stats)}\n\
+    filePath.value = '${filePath}'\n\
   }\n\
 }\n\
 </script>`
