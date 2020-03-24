@@ -9,7 +9,7 @@ function vue ({ markup, frontMatter, stats, filePath }) {
 \n\
 <script>\n\
 import { inject } from '@vue/composition-api'\n\
-import { useSymbol } from '@baleada/prose/vue'\n\
+import { useSymbol } from '@baleada/prose-vue'\n\
 \n\
 export default {\n\
   setup () {\n\
