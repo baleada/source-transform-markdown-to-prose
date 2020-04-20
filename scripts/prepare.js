@@ -1,7 +1,9 @@
-const babelify = require('./babelify')
+const { empty } = require('@baleada/prepare')
+      compile = require('./compile')
 
 function prepare () {
-  babelify()
+  empty('lib')
+  compile()
 }
 
 prepare()

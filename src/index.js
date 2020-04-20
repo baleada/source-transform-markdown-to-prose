@@ -1,7 +1,7 @@
 import fs from 'fs'
 import fm from 'front-matter'
 import MarkdownIt from 'markdown-it'
-import MarkdownItProseContainer from '@baleada/prose-container/markdown-it'
+import MarkdownItProseContainer from '@baleada/markdown-it-prose-container'
 import getTemplate from './templateGetters'
 
 export default function(required, options) {

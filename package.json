@@ -1,14 +1,14 @@
 {
-  "name": "@baleada/markdown-to-prose",
-  "version": "0.4.0",
-  "description": "Transform markdown strings into React, Vue, and Svelte templates with Prose components. Designed to be used with Baleada Loader.",
+  "name": "@baleada/source-transform-markdown-to-prose",
+  "version": "0.5.9",
+  "description": "Transform markdown strings into React, Vue, and Svelte templates with Prose components. Designed to be used with Baleada Source Transform.",
   "main": "lib/index.js",
   "scripts": {
     "prepare": "node scripts/prepare.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/baleada/markdown-to-prose.git"
+    "url": "git+https://gitlab.com/baleada/source-transform-markdown-to-prose.git"
   },
   "keywords": [
     "baleada",
@@ -26,7 +26,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/baleada/markdown-to-prose/issues"
+    "url": "https://gitlab.com/baleada/source-transform-markdown-to-prose/issues"
   },
   "homepage": "https://baleada.netlify.com",
   "dependencies": {
@@ -41,6 +41,7 @@
     "@babel/plugin-proposal-private-methods": "^7.6.0",
     "@babel/preset-env": "^7.7.1",
     "@nuxtjs/eslint-config": "^1.1.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "ava": "^3.5.1",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
@@ -50,9 +51,10 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-nuxt": "^0.5.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "rollup-plugin-babel": "^4.4.0"
   },
   "peerDependencies": {
-    "@baleada/prose-container": "0.x"
+    "@baleada/markdown-it-prose-container": "0.x"
   }
 }
