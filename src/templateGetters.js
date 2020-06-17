@@ -34,7 +34,7 @@ function svelte ({ markup, frontMatter, stats }) {
 }
 
 function singleQuoteStringify (props) {
-  return JSON.stringify(props).replace(/"/g, '\'')
+  return JSON.stringify(props).replace(/'/, "\\'").replace(/"/g, '\'')
 }
 
 const templateGetters = {
