@@ -33,8 +33,8 @@ function svelte ({ markup, frontMatter, stats }) {
   throw new Error('svelte template is a work in progress')
 }
 
-function singleQuoteStringify (props) {
-  return JSON.stringify(props).replace(/'/g, "\\'").replace(/"/g, '\'')
+function singleQuoteStringify (object) {
+  return JSON.stringify(object).replace(/'/g, "\\'").replace(/"/g, '\'')
 }
 
 const templateGetters = {
