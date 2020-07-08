@@ -4,7 +4,7 @@ import MarkdownIt from 'markdown-it'
 import MarkdownItProseContainer from '@baleada/markdown-it-prose-container'
 import getTemplate from './templateGetters'
 
-export default function(required, options) {
+export default function getTransform (required, options) {
   const { templateType } = required,
         { proseContainer: proseContainerOptions, markdownIt: markdownItOptions, before, after } = options,
         proseContainerRequired = required,
